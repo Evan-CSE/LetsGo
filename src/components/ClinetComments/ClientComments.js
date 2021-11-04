@@ -6,7 +6,7 @@ export default function ClientComments() {
     const [comments,setComments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/comments')
+        fetch('https://mighty-river-13958.herokuapp.com/comments')
             .then(res => res.json())
             .then(data => {
                 setComments(data)

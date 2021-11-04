@@ -6,7 +6,7 @@ export default function ManageOrder() {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://mighty-river-13958.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -14,7 +14,7 @@ export default function ManageOrder() {
     const cancelPlan = (tid) => {
         const choice = window.confirm('Are you sure want to cancel plan?');
         if (choice) {
-            fetch(`http://localhost:5000/delete/${tid}`, {
+            fetch(`https://mighty-river-13958.herokuapp.com/delete/${tid}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -26,7 +26,7 @@ export default function ManageOrder() {
 
     const approvePlan = (data) => {
         const tid  = data.tid;
-        const url = `http://localhost:5000/updateStatus/${data.tid}`;
+        const url = `https://mighty-river-13958.herokuapp.com/updateStatus/${data.tid}`;
         const newStatus = {...data};
         newStatus['status'] = 'approved';
         fetch(url, {

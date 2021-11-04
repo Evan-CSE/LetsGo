@@ -16,7 +16,7 @@ export default function MyOrder() {
         const ans = window.confirm("Are you sure want to cancel this trip?");
         if(ans){
             setTripCancel(false);
-            fetch(`http://localhost:5000/delete/${tid}`,{
+            fetch(`https://mighty-river-13958.herokuapp.com/delete/${tid}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())
@@ -31,7 +31,7 @@ export default function MyOrder() {
     useEffect(() => {
         setIsLoaded(false);
         while (user.length === 0);
-        fetch(`http://localhost:5000/order/${user.uid}`)
+        fetch(`https://mighty-river-13958.herokuapp.com/order/${user.uid}`)
             .then(res => res.json())
             .then(data => setMyOrder(data))
         setIsLoaded(true);
@@ -52,7 +52,7 @@ export default function MyOrder() {
                                 </div>
                             )}
                         </>
-                        : <Spinner animation='border' className='d-block mx-auto' />
+                        : <Spinner animation='border' className='text-center' />
                 }
             </div>
             <Footer></Footer>

@@ -19,7 +19,7 @@ export default function AddServices() {
         const des = descriptionRef.current.value;
         const newProduct = { name, length, price, img, des };
         console.log(newProduct);
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://mighty-river-13958.herokuapp.com/addservice', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

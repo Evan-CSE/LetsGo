@@ -9,7 +9,7 @@ export default function DetailedService() {
     const {user} = FirebaseConnect();
     const { id } = useParams();
     const [details, setDetails] = useState({});
-    const url = `http://localhost:5000/service/${id}`;
+    const url = `https://mighty-river-13958.herokuapp.com/service/${id}`;
     const NameRef = useRef();
     const AddressRef = useRef();
     const tidRef = useRef();
@@ -31,7 +31,7 @@ export default function DetailedService() {
         const status = 'pending';
         console.log(AddressRef.current.value);
         const obj = {PackageName,Cutomer,address,tid,userId,status} ;
-        fetch('http://localhost:5000/order',{
+        fetch('https://mighty-river-13958.herokuapp.com/order',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

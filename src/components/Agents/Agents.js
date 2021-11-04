@@ -7,7 +7,7 @@ export default function Agents() {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/agent')
+        fetch('https://mighty-river-13958.herokuapp.com/agent')
             .then(res => res.json())
             .then(data => setAgent(data))
     }, [])

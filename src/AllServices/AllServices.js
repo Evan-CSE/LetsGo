@@ -14,7 +14,7 @@ export default function AllServices() {
 
     useEffect(() => {
         setLoaded(false);
-        fetch(`http://localhost:5000/service?page=${currentPage}`)
+        fetch(`https://mighty-river-13958.herokuapp.com/service?page=${currentPage}`)
             .then(res => res.json())
             .then(data => {
                 setLoaded(true);

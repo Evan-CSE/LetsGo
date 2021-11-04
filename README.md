@@ -1,7 +1,7 @@
 # Project Name: Lets Go
-# Project Type: Tourism Related Website 
-# Technology used: React, Bootstrap, MongoDb, Express
-# Site link : 
+## Project Type: Tourism Related Website 
+## Technology used: React, Bootstrap, MongoDb, Express
+## Site link : https://compassionate-almeida-47dc4d.netlify.app/
 
 ### Feature:
 ## User can create an account

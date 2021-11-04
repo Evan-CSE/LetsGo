@@ -7,7 +7,7 @@ export default function AllOrder() {
     const [orders,setOrders] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/orders')
+        fetch('https://mighty-river-13958.herokuapp.com/orders')
         .then(res=>res.json())
         .then(data=>setOrders(data))
     },[])

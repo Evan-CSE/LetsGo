@@ -6,7 +6,7 @@ export default function Services() {
     const [TourPackage, setTourPackage] = useState([]);
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:5000/limitservice')
+        fetch('https://mighty-river-13958.herokuapp.com/limitservice')
             .then(res => res.json())
             .then(data => {
                 setLoaded(true);
