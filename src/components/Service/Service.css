@@ -1,0 +1,11 @@
+.singleCard{
+    border:3px solid rgb(116, 158, 54);
+    border-radius: 30px;
+    padding: 10px;
+    margin: 2%;
+    width: 80%;
+}
+
+.singleCard img:hover{
+    box-shadow: 3px 3px 3px gray;
+}
