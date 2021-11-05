@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer'
 import MenuBar from '../MenuBar/MenuBar'
 
 export default function DetailedService() {
-    const {user} = FirebaseConnect();
+    const { user } = FirebaseConnect();
     const { id } = useParams();
     const [details, setDetails] = useState({});
     const url = `https://mighty-river-13958.herokuapp.com/service/${id}`;
@@ -25,25 +25,25 @@ export default function DetailedService() {
     const formHandler = (e) => {
         const PackageName = details.name;
         const Cutomer = NameRef.current.value;
-        const address  = AddressRef.current.value;
+        const address = AddressRef.current.value;
         const tid = tidRef.current.value;
         const userId = user.uid;
         const status = 'pending';
         console.log(AddressRef.current.value);
-        const obj = {PackageName,Cutomer,address,tid,userId,status} ;
-        fetch('https://mighty-river-13958.herokuapp.com/order',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        const obj = { PackageName, Cutomer, address, tid, userId, status };
+        fetch('https://mighty-river-13958.herokuapp.com/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(obj)
+            body: JSON.stringify(obj)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.insertedId){
-                alert("Your record is saved.Please wait for confirmation. You can check your confirmation of the package from My Order Option. Thank You!");
-            }
-        });
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert("Your record is saved.Please wait for confirmation. You can check your confirmation of the package from My Order Option. Thank You!");
+                }
+            });
         e.target.reset();
         e.preventDefault();
     }
@@ -70,10 +70,25 @@ export default function DetailedService() {
                         <table >
                             <tr>
                                 <td>
-                                    Name:
+                                    User Name:
+                                </td>
+                                <td><input type="text" value={user.displayName} /></td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email:
                                 </td>
                                 <td>
-                                    <input type="text" placeholder='Name Of the Customer' ref={NameRef} required/>
+                                    <input type="text" value={user.email}/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Reference Name:
+                                </td>
+                                <td>
+                                    <input type="text" placeholder='Name Of the Recipient' ref={NameRef} required />
                                 </td>
                             </tr>
                             <tr>
@@ -82,7 +97,7 @@ export default function DetailedService() {
                             </tr>
                             <tr>
                                 <td>Transaction Id: </td>
-                                <td><input type="text" placeholder='Enter Your Transaction id' ref={tidRef} required/></td>
+                                <td><input type="text" placeholder='Enter Your Transaction id' ref={tidRef} required /></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -94,7 +109,7 @@ export default function DetailedService() {
 
                     </form>
                 </div>
-                    :<div className='d-flex justify-content-center'><Spinner animation='border' /></div>
+                    : <div className='d-flex justify-content-center'><Spinner animation='border' /></div>
             }
             <Footer></Footer>
         </div>
