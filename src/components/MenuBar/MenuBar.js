@@ -14,7 +14,7 @@ export default function MenuBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home" style={style}>Lets Go</Navbar.Brand>
+                <NavLink exact to='/' style={style}>Lets Go</NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

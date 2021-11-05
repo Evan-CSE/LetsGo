@@ -94,7 +94,7 @@ export default function DetailedService() {
 
                     </form>
                 </div>
-                    : <Spinner animation='border' />
+                    :<div className='d-flex justify-content-center'><Spinner animation='border' /></div>
             }
             <Footer></Footer>
         </div>

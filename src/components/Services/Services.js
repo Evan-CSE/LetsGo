@@ -24,7 +24,7 @@ export default function Services() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)' }}>
                 {
                     !loaded?
-                    <Spinner animation='border' className='d-block mx-auto'/>
+                    <div className='d-flex justify-content-center'><Spinner animation='border'/></div>
                     :
                     TourPackage.map(data => <Service id={data._id} obj={data}></Service>)
                 }

@@ -9,7 +9,7 @@ export default function AllServices() {
     const [TourPackage, setTourPackage] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [pageCount, setPageCount] = useState(0);
-    const [currentPage,setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
 
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function AllServices() {
                 setLoaded(true);
                 setTourPackage(data.result)
                 setPageCount(Math.ceil(parseInt(data.count) / 6));
-                
+
             }
             )
     }, [currentPage])
@@ -28,24 +28,24 @@ export default function AllServices() {
     return (
         <div>
             <MenuBar></MenuBar>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)' }}>
-                {
-                    !loaded ?
-                        <Spinner animation='border' className='d-block mx-auto' />
-                        :
-                        TourPackage.map(data => <Service id={data._id} obj={data}></Service>)
-                }
-            </div>
+            {
+                !loaded ?
+                    <div className='d-flex justify-content-center'><Spinner animation='border' /></div>
+                    :
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)' }}>{
+                        TourPackage.map(data => <Service id={data._id} obj={data}></Service>)}
+                    </div>
+            }
             <div className='pagination text-center m-5'>
                 {
-                    [...Array(parseInt(pageCount)).keys()].map(number => 
-                    <button
-                    className={number===currentPage?'selected':''}
-                    key={number}
-                    onClick={()=>setCurrentPage(number)}
-                    >
-                        {number+1}
-                    </button>)
+                    [...Array(parseInt(pageCount)).keys()].map(number =>
+                        <button
+                            className={number === currentPage ? 'selected' : ''}
+                            key={number}
+                            onClick={() => setCurrentPage(number)}
+                        >
+                            {number + 1}
+                        </button>)
                 }
             </div>
             <Footer></Footer>
