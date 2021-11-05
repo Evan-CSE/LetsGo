@@ -6,7 +6,7 @@ import MenuBar from '../MenuBar/MenuBar'
 
 export default function MyOrder() {
 
-    const { user} = FirebaseConnect();
+    const { user,isLoading} = FirebaseConnect();
     const [myorder, setMyOrder] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [tripCancel,setTripCancel] = useState(false);
@@ -30,7 +30,6 @@ export default function MyOrder() {
 
     useEffect(() => {
         setIsLoaded(false);
-        while (user.length === 0);
         fetch(`https://mighty-river-13958.herokuapp.com/order/${user.uid}`)
             .then(res => res.json())
             .then(data => {setMyOrder(data);setIsLoaded(true);})
@@ -41,7 +40,7 @@ export default function MyOrder() {
         <div>
             <MenuBar></MenuBar>
                 {
-                    isLoaded ?
+                    isLoaded || isLoading ?
                         <div className='row'>
                            { myorder.map(data=> 
                                 <div key={data._id} className='col-md-4 border border-3 border-success m-2 p-2'>
