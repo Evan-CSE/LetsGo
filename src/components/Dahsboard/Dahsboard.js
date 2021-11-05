@@ -34,7 +34,10 @@ export default function Dahsboard() {
             </div>
             <div>
                 <h3 className='text-center text-success mt-5'>
-                    Your Tour Plans
+                    Name: {user.displayName}
+                </h3>
+                <h3 className='text-center text-success mt-5'>
+                    email: {user.email}
                 </h3>
             </div>
             <Footer></Footer>
